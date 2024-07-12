@@ -1,6 +1,6 @@
 # upmulp
 
-Inspired from not being able to use multer or busboy in a recent project. A custom multipart form data parser for Node.js. This package helps you parse multipart form data in Node.js applications, allowing you to handle file uploads and form fields with ease.
+Inspired by the need to handle multipart form data in Node.js applications when multer or busboy were not suitable. This package helps you parse multipart form data in Node.js applications, allowing you to handle file uploads and form fields with ease.
 
 ## Features
 
@@ -101,8 +101,25 @@ The result object passed to the callback contains two properties:
 
 - `fields`: An object containing form fields.
 - `files`: An array of file objects, each with the following properties:
+
   - `name`: The name of the form field.
   - `path`: The path to the uploaded file on the server.
+
+### Compatibility
+
+This package supports both CommonJS and ES module environments. You can import it using either `require` or `import` syntax:
+
+**CommonJS:**
+
+```javascript
+const MultipartParser = require("upmulp");
+```
+
+**ES Module:**
+
+```javascript
+import MultipartParser from "upmulp";
+```
 
 ## Development
 
