@@ -16,7 +16,7 @@
     "parser",
     "form-data"
   ],
-  "author": "Your Name",
+  "author": "Baran Çiçek",
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.3.4",
