@@ -54,11 +54,6 @@ app.post("/upload", (req, res) => {
     res.status(200).send("Upload successful");
   });
 });
-
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
 ```
 
 ### MultipartParser Class

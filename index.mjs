@@ -1,9 +1,10 @@
-const path = require("path");
-const fs = require("fs");
-const url = require("url");
+import { fileURLToPath } from "url";
+import path from "path";
+import fs from "fs";
 
-//const __filename = __filename || url.fileURLToPath(require.main.filename);
-//const __dirname = __dirname || path.dirname(__filename);
+// Define __filename and __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 class MultipartParser {
   constructor(boundary) {
@@ -80,4 +81,4 @@ class MultipartParser {
   }
 }
 
-module.exports = MultipartParser;
+export default MultipartParser;
