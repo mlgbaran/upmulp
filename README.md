@@ -24,10 +24,10 @@ npm install upmulp
 Here's an example of how to use `upmulp` in an Express application:
 
 ```javascript
-import express from "express";
-import path from "path";
-import fs from "fs";
-import MultipartParser from "upmulp";
+const express = require("express");
+const path = require("path");
+const fs = require("fs");
+const MultipartParser = require("upmulp");
 
 const app = express();
 
@@ -37,13 +37,12 @@ if (!fs.existsSync(uploadDir)) {
 }
 
 app.post("/upload", (req, res) => {
-  const contentType = req.headers["content-type"];
-  if (!contentType || !contentType.includes("multipart/form-data")) {
-    return res.status(400).send("Invalid content type");
+  let parser;
+  try {
+    parser = MultipartParser.fromRequest(req);
+  } catch (err) {
+    return res.status(400).send(err.message);
   }
-
-  const boundary = contentType.split("boundary=")[1];
-  const parser = new MultipartParser(boundary);
 
   parser.parse(req, (err, result) => {
     if (err) {
